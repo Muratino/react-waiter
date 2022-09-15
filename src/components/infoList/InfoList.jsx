@@ -22,7 +22,6 @@ export const InfoList = () => {
                 dispatch(setActionLiczba(newobj))
             }
         });
-        // localhelper('getItem', days);
     }
 
     useEffect(() => {
