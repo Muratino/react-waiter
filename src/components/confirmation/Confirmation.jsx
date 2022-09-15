@@ -10,28 +10,11 @@ export const Confirmation = () => {
     const dispatch = useDispatch();
     const { zamov, store } = useSelector((state) => state.order);
     const [chek, setChek] = useState(true);
-    // const [open, setOpen] = useState(false);
-
-    // const localZamov = () => {
-    //     if (store.length > 0) {
-    //         let arr;
-    //         store.map(elem => arr = localStorage.getItem(elem));
-    //         // console.log(JSON.parse(arr));
-    //         dispatch(setNewZamov(JSON.parse(arr)));
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     localZamov();
-    // }, [store])
-
-
 
     const changeInput = (e, id) => {
         const checked = e.target.checked;
         dispatch(setChekZamov(id));
     }
-
 
     const chekAllElements = (elem) => {
         return elem.chek == true;
@@ -58,11 +41,6 @@ export const Confirmation = () => {
                 <h1 className='basket-tittle'>Zamówienie klienta oczekujące na potwierdzenie</h1>
                 <div className="klient__info">
                     <form>
-                        {/* {
-                            open 
-                            ? <div className="open__modal-from">Oczekiwać...</div>
-                            : null
-                        } */}
                         {
                             zamov.map(elem => {
                                 return (

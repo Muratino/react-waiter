@@ -1,6 +1,5 @@
-import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import {  NavLink, Outlet } from "react-router-dom";
 
-import { useState } from "react";
 import { Header } from "../header/Header";
 
 
@@ -15,7 +14,7 @@ const steps = [
 export const Order = () => {
 
     return (
-        <div className="wrapper">
+        <>
             <Header rulse={{ input: true, basket: true }} />
 
             <main className="main">
@@ -40,6 +39,6 @@ export const Order = () => {
                     }
                 </div>
             </div>
-        </div>
+        </>
     );
 }

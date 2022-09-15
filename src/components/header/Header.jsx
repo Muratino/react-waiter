@@ -36,6 +36,9 @@ export const Header = ({ rulse }) => {
 
     const deleteCart = (id) => {
         dispatch(deletZamov(id))
+        if(zamov.length == 1) {
+            openModal();
+        }
     }
 
     return (
@@ -59,31 +62,29 @@ export const Header = ({ rulse }) => {
                 }
                 <span>{name}</span>
                 <img src={profileIMG ? profileIMG : 'https://esportnow.pl/wp-content/uploads/2017/09/profile.png'} alt="profile" />
-                {
-                    modal
-                        ? (<div className={`shop-cart ${modal ? 'active' : ''}`}>
-                            {
-                                zamov.map(el => {
-                                    return (
-                                        <div key={el.id} className="cart-item">
-                                            <div className="cart-item-rigth">
-                                                <img src={el.basket.img} alt="img" />
-                                                <h2>{el.basket.name}</h2>
-                                            </div>
-                                            <div className="cart-item-left">
-                                                <FaTrashAlt
-                                                    onClick={() => deleteCart(el.id)}
-                                                    className={`shop-cart-button`}
-                                                />
-                                                <p>{el.basket.money} zl</p>
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>)
-                        : null
-                }
+                
+                
+                <div className={`shop-cart ${modal ? 'active' : ''}`}>
+                    {
+                        zamov.map(el => {
+                            return (
+                                <div key={el.id} className="cart-item">
+                                    <div className="cart-item-rigth">
+                                        <img src={el.basket.img} alt="img" />
+                                        <h2>{el.basket.name}</h2>
+                                    </div>
+                                    <div className="cart-item-left">
+                                        <FaTrashAlt
+                                            onClick={() => deleteCart(el.id)}
+                                            className={`shop-cart-button`}
+                                        />
+                                        <p>{el.basket.money} zl</p>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
             </div>
         </header>
     );

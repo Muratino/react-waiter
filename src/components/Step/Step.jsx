@@ -1,21 +1,14 @@
-import { useState } from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import { Skeleton } from '../skeleton/Skeleton';
-import { Asort } from "../asort/Asort";
 import { Error } from "../error/Error";
 import Spinner from '../spinner/Spinner';
-import { setSearch, setStatus, setArrAsort, setNewZamov } from "../../redux/slice/orderSlice";
 
 
 
 export const Step = ({Components}) => {
-    const dispatch = useDispatch();
-    const { search, status, arrAsort, zamov } = useSelector((state) => state.order);
+    const { status } = useSelector((state) => state.order);
 
-    const someClick = () => {
-        console.log('something is happening...');
-    }
 
     const loading = status === 'loading' ? <Spinner /> : null;
     const success = status === 'success' ? <Components /> : null;

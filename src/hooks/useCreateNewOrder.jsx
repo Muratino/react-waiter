@@ -1,8 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import axios from 'axios';
-import { setNewZamov, setStore } from '../redux/slice/orderSlice';
-//https://62bdc6edc5ad14c110c685b7.mockapi.io/orders
+// import axios from 'axios';
+import { setNewZamov } from '../redux/slice/orderSlice';
 
 
 export const useCreateNewOrder = () => {
@@ -10,6 +9,8 @@ export const useCreateNewOrder = () => {
 
 
     const createOrder = (obj, num) => {
+
+
         const id = uuidv4().substring(0, 5);
         const newOrder = {
             id,
@@ -23,6 +24,8 @@ export const useCreateNewOrder = () => {
                 money: obj.price * num
             }
         };
+        // console.log(num);
+        // console.log(newOrder);
 
         return newOrder;
     }

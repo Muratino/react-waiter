@@ -17,7 +17,7 @@ import { Payment } from '../components/payment/Payment';
 
 export const Main = () => {
     return (
-        <>
+        <div className='wrapper'>
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<HomeStart />} />
@@ -33,6 +33,6 @@ export const Main = () => {
                     <Route path="*" element={<HomeStart />} />
                 </Routes>
             </BrowserRouter>
-        </>
+        </div>
     );
 }

@@ -31,7 +31,7 @@ export const MainProfile = () => {
 
 
     return (
-        <div className="wrapper">
+        <>
             <Header rulse={{ input: false }} />
 
             <Outlet />
@@ -50,7 +50,7 @@ export const MainProfile = () => {
                     </NavLink>
                 </div>
             </div>
-        </div>
+        </>
 
     );
 }
