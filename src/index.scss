@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@300;400;600;800&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+$color-title-color: #1F2937;
+$color-text-color:#6B7280;
+$basic-color: #32B768;
+$another-button-color: #D1FAE5;
+$another-text-color: #10B981;
+$disabled-color: #F4F4F4; 
+$disabled-text-color: #9CA3AF;
+
+body {
+
+    background-color: #F6F6F6;
+}

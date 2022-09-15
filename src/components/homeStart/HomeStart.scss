@@ -1,0 +1,103 @@
+@import '../../index.scss';
+
+
+.start__page {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    
+    img {
+        max-width: 40%;
+
+        @media (max-width: 650px) {
+            max-width: 60%;
+        }
+        @media (max-width: 350px) {
+            max-width: 75%;
+        }
+        @media (min-width: 1024px) {
+            max-width: 400px;
+        }
+    }
+
+    h1 {
+        margin: 36px 0;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        color: $color-text-color;
+        @media (max-width: 650px) {
+            margin: 25px 0;
+            font-size: 20px;
+        }
+    }
+
+    &__button {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 50%;
+        max-width: 870px;
+
+        @media (max-width: 380px) {
+           width: 80%;
+        }
+        @media (min-width: 1024px) {
+            width: 500px;
+        }
+
+        &-item {
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 26px;
+            padding: 20px 5px;
+            width: 100%;
+            border-radius: 12px;
+            border-style: none;
+            color: #fff;
+            background-color: $basic-color;
+
+            &:first-child {
+                margin-bottom: 33px;
+            }
+
+            &.another {
+                text-decoration: none;
+                color: $another-text-color;
+                background-color: $another-button-color;
+            }
+
+            @media (max-width: 650px) {
+                font-size: 20px;
+                padding: 15px 3px;
+
+                &:first-child {
+                    margin-bottom: 22px;
+                }
+            }
+
+            @media (max-width: 480px) {
+                font-size: 17px;
+                padding: 10px 3px;
+
+                &:first-child {
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+
+
+}
