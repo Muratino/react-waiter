@@ -15,14 +15,15 @@ const initialState = {
     zamov: [],
     store: [],
     weekDay: [0, 1, 2, 3, 4, 5, 6],
+    today: 0,
     raport: [
-        { dni: 'Pon', h: 8, liczba: 0 },//0
-        { dni: 'Wt', h: 8, liczba: 0 },//1
-        { dni: 'Cr', h: 8, liczba: 0 },//2
-        { dni: 'Cz', h: 7, liczba: 0 },//3
-        { dni: 'Pie', h: 8, liczba: 0 },//4
-        { dni: 'Sob', h: 5, liczba: 0 },//5
-        { dni: 'Nied', h: 0, liczba: 0 }//6
+        { dni: 'Nied', h: 0, liczba: 0 },//0
+        { dni: 'Pon', h: 0, liczba: 0 },//1
+        { dni: 'Wt', h: 0, liczba: 0 },//2
+        { dni: 'Cr', h: 0, liczba: 0 },//3
+        { dni: 'Cz', h: 0, liczba: 0 },//4
+        { dni: 'Pie', h: 0, liczba: 0 },//5
+        { dni: 'Sob', h: 0, liczba: 0 },//6
     ],
     search: '',
     status: '',
@@ -36,7 +37,7 @@ export const orderSlice = createSlice({
     reducers: {
         resetAllInfo(state) {
             state.raport.map(item => {
-                // item.h = 0;
+                item.h = 0;
                 item.liczba = 0;
             });
         },
@@ -44,13 +45,13 @@ export const orderSlice = createSlice({
             state.raport[action.payload].liczba++;
         },
         changeDay(state, action) {
-            state.weekDay = action.payload;
+            state.today = action.payload;
         },
         setActionLiczba(state, action) {
             state.raport[action.payload.index].liczba = +action.payload.elem;
         },
         setHours(state, action) {
-            state.raport[action.payload].h = action.payload.time;
+            state.raport[action.payload.index].h = action.payload.time;
         },
         setSearch(state, action) {
             state.search = action.payload;

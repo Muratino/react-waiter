@@ -641,15 +641,32 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin: 0 10px;
 
-        img {
+        @media (max-width: 750px) {
+            padding: 24px 22px;
+            min-height: 230px;
+        }
+        @media (max-width: 450px) {
+            padding: 20px 18px;
+            min-height: 0;
         }
 
         span {
             font-family: "Inter";
             font-weight: 500;
             font-size: 24px;
+            text-align: center;
             color: $color-title-color;
+            @media (max-width: 750px) {
+                font-size: 22px;
+            }
+            @media (max-width: 450px) {
+                font-size: 18px;
+            }
+            @media (max-width: 330px) {
+                font-size: 15px;
+            }
         }
     }
 }

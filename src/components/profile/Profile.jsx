@@ -27,7 +27,7 @@ export const Profile = () => {
     };
 
     const changeProfileInfo = () => {
-        dispatch(setName(profName));
+        !profName.length == 0 && dispatch(setName(profName));
         dispatch(setProfileIMG(upfile));
         localStorage.setItem('name', profName);
         localStorage.setItem('profImg', upfile);

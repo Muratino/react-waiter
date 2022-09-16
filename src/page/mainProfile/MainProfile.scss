@@ -198,18 +198,110 @@
             padding: 35px 22px;
             display: flex;
             flex-direction: column;
+            // position: relative;
 
             @media (max-width: 1000px) {
                 padding: 20px 15px;
             }
 
+            .modal-hours {
+                position: absolute;
+                bottom: 0px;
+                left: 0;
+                padding: 24px 20px;
+                box-shadow: 0px 0px 80px 50px rgba(0, 0, 0, 0.22);
+                background: #ffffff;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                transition: all 0.3s ease-in-out;
+                opacity: 0;
+                visibility: hidden;
+
+                &.active-h {
+                    transform: translateX(100%);
+                    opacity: 1;
+                    visibility: visible;
+                    @media (min-width: 1310px) {
+                        transform: translateX(120%);
+                    }
+                    @media (max-width: 630px) {
+                        transform: translateX(50%);
+                    }
+                    @media (max-width: 420px) {
+                        transform: translateX(52%);
+                    }
+                }
+
+                @media (max-width: 750px) {
+                    padding: 20px 18px;
+                }
+                @media (max-width: 500px) {
+                    padding: 17px 15px;
+                }
+                @media (max-width: 410px) {
+                    padding: 15px 12px;
+                }
+
+                span {
+                    font-family: "Inter";
+                    font-weight: 500;
+                    font-size: 22px;
+                    text-align: center;
+                    color: $color-title-color;
+                    @media (max-width: 500px) {
+                        font-size: 18px;
+                    }
+                    @media (max-width: 370px) {
+                        font-size: 14px;
+                    }
+                }
+
+                input {
+                    background: #ffff;
+                    border-radius: 5px;
+                    border: 1px solid #686868;
+                    color: $color-title-color;
+                    font-family: "Inter";
+                    font-size: 14px;
+                    padding: 5px;
+                    margin-top: 10px;
+
+                    @media (max-width: 500px) {
+                        font-size: 12px;
+                    }
+                    @media (max-width: 370px) {
+                        margin-top: 5px;
+                        padding: 3px 2px;
+                    }
+
+                    &:focus {
+                        outline: 0;
+                    }
+                }
+
+                button {
+                    border: 1px solid $color-title-color !important;
+                    margin-top: 10px;
+                    line-height: normal !important;
+                    padding: 5px 10px;
+                    @media (max-width: 420px) {
+                        padding: 3px 6px;
+                    }
+                }
+            }
+
             .list__button {
                 margin-top: 30px;
                 display: flex;
-                justify-content: flex-end;
+                align-items: center;
+                justify-content: space-between;
                 @media (max-width: 750px) {
                     margin-top: 15px;
                 }
+                
+                position: relative;
 
                 button {
                     cursor: pointer;
@@ -221,6 +313,7 @@
                     width: 18%;
                     font-weight: 600;
                     min-width: 100px;
+                    max-width: 250px;
                     font-size: 16px;
                     line-height: 36px;
                     @media (max-width: 750px) {

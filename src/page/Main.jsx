@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     BrowserRouter,
     Routes,
@@ -16,6 +16,7 @@ import { Payment } from '../components/payment/Payment';
 
 
 export const Main = () => {
+
     return (
         <div className='wrapper'>
             <BrowserRouter>
@@ -26,9 +27,9 @@ export const Main = () => {
                         <Route path="infolist" element={<InfoList />} />
                     </Route>
                     <Route path="/order" element={<Order />} >
-                        <Route path="step1" element={<Step Components={Asort}/>} />
-                        <Route path="step2" element={<Step Components={Confirmation}/>} />
-                        <Route path="step3" element={<Step Components={Payment}/>} />
+                        <Route path="step1" element={<Step Components={Asort} />} />
+                        <Route path="step2" element={<Step Components={Confirmation} />} />
+                        <Route path="step3" element={<Step Components={Payment} />} />
                     </Route>
                     <Route path="*" element={<HomeStart />} />
                 </Routes>

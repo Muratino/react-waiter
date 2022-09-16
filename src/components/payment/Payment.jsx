@@ -3,18 +3,29 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from "react-router-dom";
 
-import { setChekPayment, deletAll, setLiczba } from '../../redux/slice/orderSlice';
+import { setChekPayment, deletAll, setLiczba, setHours } from '../../redux/slice/orderSlice';
 
 import ready from '../../assets/Order Success.svg';
 import like from '../../assets/ant-design_like-filled.svg';
+import { useEffect } from 'react';
 
 export const Payment = () => {
     let navigate = useNavigate();
     const dispatch = useDispatch();
     const { zamov, raport, weekDay } = useSelector((state) => state.order);
     const [payment, setPayment] = useState(true);
+    const [today, setToday ] = useState(null);
     const [open, setOpen] = useState(false);
 
+    function getWeekDay(date, arr) {
+        return arr[date.getDay()];
+    }
+
+    useEffect(() => {
+        let date = new Date();
+        console.log((getWeekDay(date, weekDay)));
+        setToday(getWeekDay(date, weekDay));
+    }, [])
 
     const changeInput = (e, id) => {
         const checked = e.target.checked;
@@ -25,22 +36,20 @@ export const Payment = () => {
         return elem.payment == true;
     }
 
-
     const saveParams = (elem) => {
         localStorage.removeItem(elem);
         localStorage.setItem(elem, raport[elem].liczba + 1);
-
     }
+
 
     const endStep = (e) => {
         e.preventDefault();
-
         if (zamov.every(chekAllElements)) {
             !payment && setPayment(true);
             setOpen(true)
 
-            dispatch(setLiczba(weekDay[1]))
-            saveParams(weekDay[1]);
+            dispatch(setLiczba(today))
+            saveParams(today);
 
             setTimeout(() => {
                 dispatch(deletAll());
@@ -48,7 +57,7 @@ export const Payment = () => {
                 setOpen(false);
             }, 3000);
         } else {
-            console.log('no');
+            console.log('error noo work');
             setPayment(false);
         }
 

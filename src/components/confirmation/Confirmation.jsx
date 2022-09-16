@@ -8,7 +8,7 @@ import wait from '../../assets/Safe Food.svg';
 export const Confirmation = () => {
     let navigate = useNavigate();
     const dispatch = useDispatch();
-    const { zamov, store } = useSelector((state) => state.order);
+    const { zamov } = useSelector((state) => state.order);
     const [chek, setChek] = useState(true);
 
     const changeInput = (e, id) => {
@@ -22,7 +22,7 @@ export const Confirmation = () => {
 
     const nextStep = (e) => {
         e.preventDefault();
-        
+
         console.log(zamov);
         if (zamov.every(chekAllElements)) {
             !chek && setChek(true);
@@ -57,7 +57,7 @@ export const Confirmation = () => {
                                                     : <span className='error__span'>Trzeba potwierdzić</span>
                                             }
                                             {
-                                                elem.chek 
+                                                elem.chek
                                                 ? <input checked onChange={(e) => changeInput(e, elem.id)} type='checkbox' name="chekbutton" id='chekbutton' />
                                                 : <input onChange={(e) => changeInput(e, elem.id)} type='checkbox' name="chekbutton" id='chekbutton' />
                                             }
