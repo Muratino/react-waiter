@@ -23,7 +23,7 @@ export const Confirmation = () => {
     const nextStep = (e) => {
         e.preventDefault();
 
-        console.log(zamov);
+        // console.log(zamov);
         if (zamov.every(chekAllElements)) {
             !chek && setChek(true);
             navigate("/order/step3");

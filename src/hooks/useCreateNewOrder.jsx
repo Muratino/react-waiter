@@ -24,8 +24,6 @@ export const useCreateNewOrder = () => {
                 money: obj.price * num
             }
         };
-        // console.log(num);
-        // console.log(newOrder);
 
         return newOrder;
     }

@@ -23,7 +23,7 @@ export const Payment = () => {
 
     useEffect(() => {
         let date = new Date();
-        console.log((getWeekDay(date, weekDay)));
+        // console.log((getWeekDay(date, weekDay)));
         setToday(getWeekDay(date, weekDay));
     }, [])
 
