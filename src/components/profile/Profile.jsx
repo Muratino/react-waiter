@@ -1,10 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useState } from "react";
 
 import { setName, setProfileIMG } from '../../redux/slice/profileSlice';
 
 export const Profile = () => {
-    const { name, profileIMG } = useSelector((state) => state.profile);
+    // const { name, profileIMG } = useSelector((state) => state.profile);
     const dispatch = useDispatch();
     const [upfile, setUpFile] = useState('');
     const [profName, setProfName] = useState('');

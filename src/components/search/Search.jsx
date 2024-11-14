@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import debounce from 'lodash.debounce';
-import { setSearch, setStatus } from "../../redux/slice/orderSlice"; 
+import { setSearch } from "../../redux/slice/orderSlice";
 import { fetchAllAsortyment } from "../../redux/slice/orderSlice";
 
 import '../order/Order.scss';
@@ -9,15 +9,15 @@ import '../order/Order.scss';
 
 export const Search = () => {
     const dispatch = useDispatch();
-    const { search, status } = useSelector((state) => state.order);    
-    const [ value, setValue ] = useState('');
+    const { search } = useSelector((state) => state.order);
+    const [value, setValue] = useState('');
     const myRef = useRef();
 
     useEffect(() => {
-        search && dispatch(fetchAllAsortyment({search}))
-    }, [search])
+        search && dispatch(fetchAllAsortyment({ search }))
+    }, [search]) // eslint-disable-line
 
-    const testDebounce = useCallback(
+    const testDebounce = useCallback( // eslint-disable-line
         debounce((str, setSome) => {
             dispatch(setSome(str));
         }, 500),

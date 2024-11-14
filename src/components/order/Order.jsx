@@ -1,6 +1,6 @@
-import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
-import { useState } from "react";
+// import { useState } from "react";
 import { Header } from "../header/Header";
 
 

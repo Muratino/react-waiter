@@ -1,14 +1,14 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { setChekZamov, setNewZamov } from "../../redux/slice/orderSlice";
+import { setChekZamov } from "../../redux/slice/orderSlice";
 
 import wait from '../../assets/Safe Food.svg';
 
 export const Confirmation = () => {
     let navigate = useNavigate();
     const dispatch = useDispatch();
-    const { zamov, store } = useSelector((state) => state.order);
+    const { zamov } = useSelector((state) => state.order);
     const [chek, setChek] = useState(true);
     // const [open, setOpen] = useState(false);
 
@@ -28,18 +28,18 @@ export const Confirmation = () => {
 
 
     const changeInput = (e, id) => {
-        const checked = e.target.checked;
+        // const checked = e.target.checked;
         dispatch(setChekZamov(id));
     }
 
 
     const chekAllElements = (elem) => {
-        return elem.chek == true;
+        return elem.chek === true;
     }
 
     const nextStep = (e) => {
         e.preventDefault();
-        
+
         console.log(zamov);
         if (zamov.every(chekAllElements)) {
             !chek && setChek(true);
@@ -79,9 +79,9 @@ export const Confirmation = () => {
                                                     : <span className='error__span'>Trzeba potwierdzić</span>
                                             }
                                             {
-                                                elem.chek 
-                                                ? <input checked onChange={(e) => changeInput(e, elem.id)} type='checkbox' name="chekbutton" id='chekbutton' />
-                                                : <input onChange={(e) => changeInput(e, elem.id)} type='checkbox' name="chekbutton" id='chekbutton' />
+                                                elem.chek
+                                                    ? <input checked onChange={(e) => changeInput(e, elem.id)} type='checkbox' name="chekbutton" id='chekbutton' />
+                                                    : <input onChange={(e) => changeInput(e, elem.id)} type='checkbox' name="chekbutton" id='chekbutton' />
                                             }
                                         </div>
                                     </div>

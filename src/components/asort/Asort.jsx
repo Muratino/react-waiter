@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useCreateNewOrder } from "../../hooks/useCreateNewOrder";
 
 import '../order/Order.scss';
@@ -12,7 +12,7 @@ export const Asort = () => {
         setOpen(prev => !prev);
     }
 
-    const { desc, id, name, img, price } = arrAsort[0];
+    const { desc, name, img, price } = arrAsort[0];
 
     return (
         <>
@@ -41,7 +41,7 @@ export const Asort = () => {
 
 const View = ({ arrAsort, someAsort }) => {
     const [num, setNum] = useState(1);
-    const { desc, id, name, img, price } = arrAsort;
+    const { name, price } = arrAsort;
     const { createOrder, logThisOrder } = useCreateNewOrder();
 
     const saveZamov = () => {

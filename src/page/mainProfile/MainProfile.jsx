@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
+// import { Link } from "react-router-dom";
+import { useDispatch } from 'react-redux';
 import { useEffect } from "react";
 
 import { setName, setProfileIMG } from '../../redux/slice/profileSlice';
@@ -15,7 +15,7 @@ import './MainProfile.scss'
 import '../../components/order/Order.scss';
 
 export const MainProfile = () => {
-    const { name, profileIMG } = useSelector((state) => state.profile);
+    // const { name, profileIMG } = useSelector((state) => state.profile);
     const dispatch = useDispatch();
 
     const upInfoProfile = () => {
@@ -27,7 +27,7 @@ export const MainProfile = () => {
 
     useEffect(() => {
         upInfoProfile();
-    }, [])
+    }, []) // eslint-disable-line
 
 
     return (

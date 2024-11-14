@@ -3,11 +3,11 @@ import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from "react-router-dom";
 
-import { setChekPayment, deletAll, setHours, setLiczba } from '../../redux/slice/orderSlice';
+import { setChekPayment, deletAll, setLiczba } from '../../redux/slice/orderSlice';
 
 import ready from '../../assets/Order Success.svg';
 import like from '../../assets/ant-design_like-filled.svg';
-import { useCallback } from 'react';
+// import { useCallback } from 'react';
 
 
 export const Payment = () => {
@@ -19,12 +19,12 @@ export const Payment = () => {
 
 
     const changeInput = (e, id) => {
-        const checked = e.target.checked;
+        const checked = e.target.checked; // eslint-disable-line
         dispatch(setChekPayment(id));
     }
 
     const chekAllElements = (elem) => {
-        return elem.payment == true;
+        return elem.payment === true;
     }
 
 
@@ -57,7 +57,7 @@ export const Payment = () => {
     }
 
     const changePayment = (e, arr) => {
-        const checked = e.target.checked;
+        const checked = e.target.checked; // eslint-disable-line
         arr.map(elem => dispatch(setChekPayment(elem.id)))
     }
 

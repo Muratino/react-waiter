@@ -28,7 +28,7 @@ export const Header = ({ rulse }) => {
 
     useEffect(() => {
         upInfoProfile();
-    }, [])
+    }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
     const openModal = () => [
         setModal(prev => !prev)

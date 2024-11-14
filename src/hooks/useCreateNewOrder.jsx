@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
-import axios from 'axios';
-import { setNewZamov, setStore } from '../redux/slice/orderSlice';
+// import axios from 'axios';
+import { setNewZamov } from '../redux/slice/orderSlice';
 //https://62bdc6edc5ad14c110c685b7.mockapi.io/orders
 
 
